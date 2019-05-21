@@ -12,7 +12,7 @@ JanusGraph stores the adjacency list representation of a graph in any <<storage-
 === Bigtable Data Model
 
 [.tss-center]
-image:bigtablemodel.png[]
+image:static/images/bigtablemodel.png[]
 
 Under the https://en.wikipedia.org/wiki/Bigtable[Bigtable data model] each table is a collection of rows. Each row is uniquely identified by a key. Each row is comprised of an arbitrary (large, but limited) number of cells. A cell is composed of a column and value. A cell is uniquely identified by a column within a given row. Rows in the Bigtable model are called "wide rows" because they support a large number of cells and the columns of those cells don't have to be defined up front as is required in relational databases.
 
@@ -23,7 +23,7 @@ In addition, a particular Bigtable implementation may keep the rows sorted in th
 === JanusGraph Data Layout
 
 [.tss-center]
-image:storagelayout.png[]
+image:static/images/storagelayout.png[]
 
 JanusGraph stores each adjacency list as a row in the underlying storage backend. The (64 bit) vertex id (which JanusGraph uniquely assigns to every vertex) is the key which points to the row containing the vertex's adjacency list. Each edge and property is stored as an individual cell in the row which allows for efficient insertions and deletions.
 The maximum number of cells allowed per row in a particular storage backend is therefore also the maximum degree of a vertex that JanusGraph can support against this backend.
@@ -33,7 +33,7 @@ If the storage backend supports key-order, the adjacency lists will be ordered b
 === Individual Edge Layout
 
 [.tss-center]
-image:relationlayout.png[]
+image:static/images/elationlayout.png[]
 
 Each edge and property is stored as one cell in the rows of its adjacent vertices. They are serialized such that the byte order of the column respects the sort key of the edge label. Variable id encoding schemes and compressed object serialization are used to keep the storage footprint of each edge/cell as small as possible.
 
