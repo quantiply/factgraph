@@ -33,7 +33,7 @@ If the storage backend supports key-order, the adjacency lists will be ordered b
 === Individual Edge Layout
 
 [.tss-center]
-image:static/images/elationlayout.png[]
+image:static/images/relationlayout.png[]
 
 Each edge and property is stored as one cell in the rows of its adjacent vertices. They are serialized such that the byte order of the column respects the sort key of the edge label. Variable id encoding schemes and compressed object serialization are used to keep the storage footprint of each edge/cell as small as possible.
 
